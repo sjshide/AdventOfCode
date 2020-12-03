@@ -1,3 +1,8 @@
 Utils consists of a function to pull my input and split on newlines. 
 
-Might add more later, but that's all that's in there now
+Might add more later, but that's all that's in there now.
+
+
+Solutions are roughly what I did in a notebook for speed, cleaned up and streamlined a bit.
+
+We'll see how long I keep posting these.
