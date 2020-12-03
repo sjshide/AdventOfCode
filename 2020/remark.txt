@@ -1,0 +1,3 @@
+Utils consists of a function to pull my input and split on newlines. 
+
+Might add more later, but that's all that's in there now
