@@ -107,8 +107,7 @@ ct_B = 0
 for passport in inp2:
     if valid1(passport):
         ct_A+=1
-        if valid2(passport):
-            ct_B+=1
+        ct_B+=valid2(passport)
 
 
 print('Part A Solution:', ct_A)
