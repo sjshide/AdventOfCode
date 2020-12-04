@@ -4,6 +4,7 @@ from utils import *
 ## would be a lot better if I was able to use regex in any meaningfully quick way
 ## don't have the heart to rewrite this from my hacky trash
 ## hope it doesn't come back to bite me
+## will make minor improvements over whatever garbage I wrote first maybe
 
 
 inp = get_input(2020,4)
@@ -14,13 +15,13 @@ this = ''
 inp2 = []
 for x in inp:
     if x == '':
-        inp2.append(this)
+        inp2.append(this[:-1])
         this=''
     else:
         this+=x
         this+=' '
 if this:
-    inp2.append(this)
+    inp2.append(this[:-1])
 
     
 # possible key combos for valid passports
@@ -31,16 +32,15 @@ target2 = sorted(['byr','iyr','eyr','hgt','hcl','ecl','pid'])
 def valid1(p):
     x = p.split(" ")
 
-    asdf = sorted([k.split(':')[0] for k in x])[1:] ### get rid of extra ''
+    list_of_keys = sorted([k.split(':')[0] for k in x])
 
-    if asdf==target1 or asdf==target2:
+    if list_of_keys in [target1,target2]:
         return(1)
     return(0)
  
     
 def valid2(p):
     m = p.split(' ')
-    m.remove('')
     d = dict()
     for x in m:
         l = x.split(':')
@@ -87,15 +87,10 @@ def valid2(p):
     #hcl
     this = d['hcl']
     s = '0123456789abcdef'
-    if this[0]=='#':
-        if len(this)==7:
-            if this[1] in s:
-                if this[2] in s:
-                    if this[3] in s:
-                        if this[4] in s:
-                            if this[5] in s:
-                                if this[6] in s:
-                                    check+=1 ###lol omg
+    if (this[0]=='#') and (len(this)==7) and (set(this[1:]) <= set(s)):
+        check+=1
+        
+        
     ## ecl:
     this = d['ecl']
     if this in ['amb', 'blu', 'brn','gry','grn','hzl','oth']:
@@ -105,13 +100,11 @@ def valid2(p):
     #pid
     this = d['pid']
     lc = 0
-    for m in this:
-        if m in '0123456789':
-            lc+=1
-    if lc==9:
+    if len(this)==9 and set(this)<=set('0123456789'):
         check+=1
     
     
+    ## see if all conditions are met
     if check==7:
         return(1)
     return(0)    
