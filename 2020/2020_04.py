@@ -10,42 +10,33 @@ from utils import *
 inp = get_input(2020,4)
 
 
-##### recombine splits on newlines into single lines:
-this = ''
+##### parse as dicts into inp2:
+d = dict()
 inp2 = []
 for x in inp:
     if x == '':
-        inp2.append(this[:-1])
-        this=''
+        inp2.append(d)
+        d=dict()
     else:
-        this+=x
-        this+=' '
-if this:
-    inp2.append(this[:-1])
+        for kv_pair in x.split(' '):
+            k,v = kv_pair.split(':')
+            d[k]=v
+if d:
+    inp2.append(d)
 
-    
+
 # possible key combos for valid passports
-target1 = sorted(['byr','iyr','eyr','hgt','hcl','ecl','pid','cid'])    
-target2 = sorted(['byr','iyr','eyr','hgt','hcl','ecl','pid'])
+target1 = set(['byr','iyr','eyr','hgt','hcl','ecl','pid','cid'])  
+target2 = set(['byr','iyr','eyr','hgt','hcl','ecl','pid'])
 
 
-def valid1(p):
-    x = p.split(" ")
-
-    list_of_keys = sorted([k.split(':')[0] for k in x])
-
-    if list_of_keys in [target1,target2]:
+def valid1(d):
+    if d.keys() in [target1,target2]:
         return(1)
     return(0)
  
     
-def valid2(p):
-    m = p.split(' ')
-    d = dict()
-    for x in m:
-        l = x.split(':')
-        d[l[0]]=l[1]
-        
+def valid2(d):
     check = 0
     
     #byr
