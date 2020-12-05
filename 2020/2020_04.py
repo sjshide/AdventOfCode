@@ -90,7 +90,6 @@ def valid2(d):
     
     #pid
     this = d['pid']
-    lc = 0
     if len(this)==9 and set(this)<=set('0123456789'):
         check+=1
     
