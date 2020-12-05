@@ -11,26 +11,10 @@ def to_bin(x):
     return(x)
 
 
-def bin_to_id(x):
-    row = 0
-    col = 0
-    
-    rev = x[::-1]
-    cols = rev[:3]
-    rows = rev[3:]
-    
-    for i in range(3):
-        col+=pow(2,i)*int(cols[i])
-    for i in range(7):
-        row+=pow(2,i)*int(rows[i])
-
-    return(8*(row)+col)
-
-
 def cumsum(n):
     return((n**2+n)//2)
 
-inp2 = [bin_to_id(to_bin(x)) for x in inp]
+inp2 = [int((to_bin(x)),2) for x in inp]
 
 ans1 = max(inp2)
 ans2 = cumsum(max(inp2)) - cumsum(min(inp2)-1) - sum(inp2)
