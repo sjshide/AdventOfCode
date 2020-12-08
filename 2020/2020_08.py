@@ -24,6 +24,9 @@ def parse(inst):
             elif rule=='nop':
                 ind+=1
 
+# run through all of the instructions, changing single jmp to nop or vice versa
+# parse written to throw (acc,0/1) where second response is 1 iff the last command is executed
+# pick the only one where this is 1.
 pt_B = 0
 for i in range(len(inp)):
     loc_inp=list(inp)
