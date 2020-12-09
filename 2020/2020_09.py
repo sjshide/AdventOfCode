@@ -10,7 +10,7 @@ for i in range(25,len(inp)):
     check = 0
     for x in test:
         for y in test:
-            if x+y==inp[i]:
+            if x!=y and x+y==inp[i]:
                 check=1
     if check==0:
         ans_A = inp[i]
