@@ -39,7 +39,7 @@ def ct(l):
             
     difs = [inds[i+1]-inds[i] for i in range(len(inds)-1)] #differences in these indices
     
-    # since differencing differences, misses start and end
+    # This doesn't handle the first block of 1s after 0 or the last block of 1s,
     # so account for that
     difs = [inds[0]+1]+difs
     difs.append(len(l)-inds[-1]-1)
