@@ -14,7 +14,19 @@ for i in range(len(inp)-1):
     else:
         ct3+=1
 
+
         
+## Part B:
+## Idea is that if there's a gap of 3, both ends are necessarily included
+## So just need to figure out valid combos of strings of 1s
+## Gap 1, 1 Combo:  x
+## Gap 2, 1 Combo:  xx   
+## Gap 3, 2 Combos: xxx, x_x
+## Gap 4, 4 Combos: xxxx, x_xx, xx_x, x__x
+## Gap 5, 7 Combos: xxxxx, x_xxx, xx_xx, xxx_x, x__xx, x_x_x, xx__x
+## Largest such gap is 5, so this is enough
+## Then multiply the value across blocks
+
 def ct(l):
     total = 1
     difs = [l[i+1]-l[i] for i in range(len(l)-1)]
