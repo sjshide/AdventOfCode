@@ -1,5 +1,7 @@
 from utils import *
 
+### comically janky
+
 from collections import defaultdict as dd
 
 inp = get_input(2020,11)
@@ -15,6 +17,8 @@ for i in range(ht):
 def to_hash(t):
     return (tuple([t[(i,j)] for i in range(ht) for j in range(wd)]))
 
+
+# count occupied adjacent seats for Part A
 def viz_ct_check_1(m,y,x):
     total=0
     for i in [-1,0,1]:
@@ -25,6 +29,8 @@ def viz_ct_check_1(m,y,x):
                     
     return(total)   
 
+
+# Update the state one step for Part A
 def update_1(m):
     local = dd(str)
     for i in range(len(inp)):
@@ -51,7 +57,7 @@ def part_A(state):
         s = update_1(s)
 
         
-        
+# count occupied adjacent seats for Part B     
 def viz_ct_check_2(m,y,x):
     total=0
     for i in [-1,0,1]:
@@ -70,6 +76,7 @@ def viz_ct_check_2(m,y,x):
     return(total)   
 
 
+# Update the state one step for Part B
 def update2(m):
     local = dd(str)
     for i in range(len(inp)):
