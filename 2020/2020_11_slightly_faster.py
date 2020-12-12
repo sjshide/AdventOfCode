@@ -8,7 +8,8 @@ initial_state = dd(str)
 
 for i in range(len(inp)):
     for j in range(len(inp[0])):
-        initial_state[(i,j)]=inp[i][j]
+        if inp[i][j] in 'L#':
+            initial_state[(i,j)]=inp[i][j]
         
 seen_A = dd(list)
 seen_B = dd(list)
