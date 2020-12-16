@@ -42,7 +42,7 @@ for x in nearby_tickets:
 
                 
 # Part B
-# Run through all parts, ruling out all possible keys
+# Run through all positions in ticket, ruling out all possible keys
 # You're left with exactly one possible configuration
 # Gotta be a cleaner way to do this, but got it done
 
