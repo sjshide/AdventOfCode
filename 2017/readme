@@ -1,3 +1,5 @@
-Did these in probably 6-7 working sessions in Nov/Dec of 2020, mainlyfor fun (but also to prep for AoC 2020).
+Did these in probably 6-7 working sessions in Nov/Dec of 2020, mainly for fun (but also to prep for AoC 2020).
 
 Seemed very easy relative to 2019.
+
+Utils contains a function that pulls my inputs and splits on '\n'. Also imports defaultdict as dd.
