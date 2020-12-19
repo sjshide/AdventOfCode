@@ -30,7 +30,7 @@ for t in ['42','31']:
         for x in valid:
             this = []
             for y in x:
-                if len(rz[y])<4:
+                if len(rz[y])<4:  ## this is where I need that hack for '63' above. slightly confused why that hack worked... will figure it out later
                     this+=[tuple([rz[y],rz[y]])]
                 else:
                     this.append((rz[y][:2],rz[y][2:]))
@@ -50,8 +50,12 @@ for t in ['42','31']:
     valid_dd[t] = valid
 
 
+### Idea: every message of the form X*m Y*n where Xs are valid '42' messages, Ys are valid '31' messages,
+### m>n, m>0, n>0
+### In part A, has to be exactly XXY
+### all Xs, Ys have the same length (8) so can use that to our advantage
 
-def check(x,part):
+def check(x,part): 
     if part=='A':
         if len(x)!=24:
             return(0)
