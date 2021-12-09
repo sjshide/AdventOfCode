@@ -19,7 +19,7 @@ for (i,j) in G:
         if (i+di,j+dj) in G:
             G.add_edge((i+di,j+dj),(i,j))
             nbct+=1
-            if d[(i+di,j+dj)]>d[(i,j)]:
+            if inp[i+di][j+dj]>inp[i][j]:
                 ct+=1
     if ct==nbct:
         A+=(1+int(inp[i][j]))
