@@ -32,7 +32,7 @@ def is_good(vx,vy):
 
 # live, did 0-1000 for vx, -1000-1000 for vy
 # note that y is always eventually 0 if vy starts >0, with next step -vy, so just need to check in ymin,-ymin
-# if vx>xmax, totally misses the box, so just need to check to vx
+# if vx>xmax, totally misses the box, so just need to check to xmax
 # will add some +3s to be safe
 
 As=[]
