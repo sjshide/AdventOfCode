@@ -1,7 +1,7 @@
 from utils import *
 
 # Likely there are much cleaner ways to do this, but it worked
-# took me roughly 1.5 hrs
+# took me roughly 2 hrs
 
 inp = get_input(2023,10)
 
