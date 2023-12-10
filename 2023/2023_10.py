@@ -57,7 +57,7 @@ for n in grid:
 # which will be used for B
 cyc = [x for x in nx.simple_cycles(g) if start in x]
 
-# Get the directed version of the graph where
+# Get the undirected version of the graph where
 # reciprocal = True means we require both directions have edges.
 # This'll give the actual cycle we want
 gDir = g.to_undirected(reciprocal=True)
