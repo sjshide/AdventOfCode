@@ -75,12 +75,41 @@ A = len(cc)//2
 
 # This is super easy...really wish I'd thought for a few more minutes about it
 
+# Update: need to actually handle S and change it to correct pipe for this to work
+# Misread output as correct for my test case ... Thanks to Wim for pointing out that this is incorrect
+# (although the reason for his version being wrong ended up different from mine)
+
+yS,xS = start
+sNbs = gDir.neighbors(start)
+
+pipeMap = {}
+pipeMap['dl'] = '7'
+pipeMap['dr'] = 'F'
+pipeMap['du'] = '|'
+pipeMap['lr'] = '-'
+pipeMap['lu'] = 'J'
+pipeMap['ru'] = 'L'
+
+nbDirs = []
+for (y,x) in sNbs:
+    if y-yS==1:
+        nbDirs.append('d')
+    elif y-yS==-1:
+        nbDirs.append('u')
+    elif x-xS==1:
+        nbDirs.append('r')
+    elif x-xS==-1:
+        nbDirs.append('l')
+nbDirs = ''.join(sorted(nbDirs))
+
+grid[start] = pipeMap[nbDirs]
+
 B = 0
 for i in range(len(inp)):
     crossings = 0
     for j in range(len(inp[i])):
         if (i,j) in cc:
-            if inp[i][j] in 'L|J':
+            if grid[(i,j)] in 'L|J':
                 crossings+=1
         elif crossings%2:
             B+=1
