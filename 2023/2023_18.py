@@ -17,7 +17,7 @@ def area(verts):
     for i in range(len(verts)-1):
         a+=verts[i][1]*verts[i+1][0]
         a-=verts[i][0]*verts[i+1][1]
-    return(a)
+    return(abs(a))
 
 # A
 y,x = 0,0
